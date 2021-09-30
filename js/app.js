@@ -1,23 +1,21 @@
 //scroll to top function
-scrollToTop = () => {
-  const scrollToTop = document.getElementById("scrollToTop");
-  window.onscroll = () => {
-    if (window.scrollY >= 400) {
-      scrollToTop.style.display = "block";
-    } else {
-      scrollToTop.style.display = "none";
-    }
-  };
-
-  scrollToTop.addEventListener("click", () => {
-    scrollTo({
-      left: 0,
-      top: 0,
-      behavior: "smooth",
-    });
-  });
+const scrollToTop = document.getElementById("scrollToTop");
+window.onscroll = () => {
+  if (window.scrollY <= 400) {
+    scrollToTop.style.display = "block";
+  } else {
+    scrollToTop.style.display = "none";
+  }
 };
-scrollToTop();
+
+scrollToTop.addEventListener("click", () => {
+  scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 /*
 /////////////////////////////////////////////////////////////////////////////////
 */
@@ -29,10 +27,10 @@ const nav = document.getElementById("navbar__list");
 for (i = 0; i < sections.length; i++) {
   let navLink = document.createElement("li");
   navLink.textContent = `section ${i + 1}`;
-  navLink.setAttribute("data-nav", `section${i + 1}`);
+  navLink.setAttribute("href", `section${i + 1}`);
   navLink.setAttribute("class", "your-active-class");
   nav.appendChild(navLink);
-  console.log(navLink.className);
+  console.log(navLink.getAttribute("href"));
 }
 
 /*
@@ -41,13 +39,13 @@ for (i = 0; i < sections.length; i++) {
 
 // scroll into section function
 const navbarLinks = document.querySelectorAll("#navbar__list li");
-scrollIntoSection = () => {
+scrollIntoSection = (e) => {
   sections.forEach((section, i) => {
     navbarLinks[i].addEventListener("click", () => {
-      if (
-        navbarLinks[i].getAttribute("data-nav") == section.getAttribute("id")
-      ) {
+      if (navbarLinks[i].getAttribute("href") == section.getAttribute("id")) {
         section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        e.preventDefault();
       }
     });
   });
