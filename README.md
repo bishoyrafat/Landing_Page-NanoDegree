@@ -1,13 +1,13 @@
 # Landing Page Project
 
-## Table of Contents
+# What the project does
 
-* [Instructions](#instructions)
+landing page project allows the user to easly scrolling through the sections using navigation bar links.
 
-## Instructions
+# Why the project is useful
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+because its allow easy access the sections.
 
-To get started, open `js/app.js` and start building out the app's functionality
+# How users can get started with the project
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+simply choose the certain section and click it in navigation bar links.
